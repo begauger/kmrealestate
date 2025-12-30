@@ -12,13 +12,22 @@ const Hero = () => {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 animate-fadeInUp">
+        {/* Logo */}
+        <div className="mb-8 flex justify-center animate-fadeInUp">
+          <img 
+            src="/wkmplogo.webp" 
+            alt="WKMP Logo" 
+            className="h-32 md:h-40 w-auto"
+          />
+        </div>
+
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 animate-fadeInUp animation-delay-200">
           Wisconsin's Kettle Moraine Properties
         </h1>
-        <p className="text-xl md:text-2xl font-light mb-10 opacity-95 animate-fadeInUp animation-delay-200">
+        <p className="text-xl md:text-2xl font-light mb-10 opacity-95 animate-fadeInUp animation-delay-400">
           We are here for all of your Real Estate needs. Let over 50 years of combined experience go to work for you.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animation-delay-400">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animation-delay-600">
           <a
             href="https://wihomes.com/br/property/default.asp?Broker=kettle1"
             target="_blank"

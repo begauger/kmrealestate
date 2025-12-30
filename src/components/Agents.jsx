@@ -5,7 +5,7 @@ const Agents = () => {
       role: 'Real Estate Professional',
       phone: '262-675-0106',
       email: 'martin@wkmp.com',
-      image: 'http://wkmp.com/wp-content/uploads/2022/02/Martin-Knuth-1-150x150.jpg',
+      image: '/marty.webp',
       tagline: 'Someone You Should Get to Know'
     },
     {
@@ -13,7 +13,7 @@ const Agents = () => {
       role: 'Real Estate Broker',
       phone: '262-689-5388',
       email: 'bob@wkmp.com',
-      image: 'http://wkmp.com/wp-content/uploads/2022/02/Business-card-pic-150x150.jpg',
+      image: '/robert.webp',
       tagline: 'Experienced Professional'
     }
   ];
@@ -36,12 +36,12 @@ const Agents = () => {
               key={index}
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
             >
-              {/* Photo Placeholder - Replace src with actual images */}
-              <div className="h-80 bg-gradient-to-br from-amber-200 to-amber-400 flex items-center justify-center overflow-hidden">
+              {/* Photo with subtle green background */}
+              <div className="h-80 bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center overflow-hidden">
                 <img
                   src={agent.image}
                   alt={agent.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 

@@ -1,42 +1,81 @@
+import { useState } from 'react';
+
 const Listings = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  
   const listings = [
-    {
-      address: '4812 Glen View Cir, West Bend',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/4812-Glenview-Ct.-West-Bend.jpg'
-    },
-    {
-      address: '2710 Esker Dr, West Bend',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/2710-Esker-Dr.-West-Bend-2.jpg'
-    },
-    {
-      address: 'N2170 N Pine Beach Rd, Oostburg',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/N2170-N.-Pine-Beach-Rd.-Oosburg.pg_.jpg'
-    },
-    {
-      address: '529 McKinley Ave, Hartford',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/529-McKinley-Ave.-Hartford.jpg'
-    },
-    {
-      address: '819 Cumberland Ln, Port Washington',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/819Cumberland-Ln-Port-Washingtonjpg.jpg'
-    },
-    {
-      address: '705-707 N. Milwaukee St, Port Washington',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/705-707-N.-Milwaukee-St.jpg'
-    },
-    {
-      address: 'W182N12517 Fond Du Lac Ave, Germantown',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/W182N12517-Fond-Du-Lack-Ave.-Germantown.jpg'
-    },
-    {
-      address: '1507 Clarence Ct, West Bend',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/1507-Clarence-Ct.-West-Bend.jpg'
-    },
-    {
-      address: '619 Tamarack Dr, West Bend',
-      image: 'https://wkmp.com/wp-content/uploads/2023/11/619-Tamarack-Dr-W-West-Bend.jpg'
-    }
+    { address: '6079 St Anthony Rd, Addison', image: '/anthony.webp' },
+    { address: '5340 Cascade Dr, Trenton', image: '/cascade.webp' },
+    { address: '5401 Cascade Dr, Trenton', image: '/cascade2.webp' },
+    { address: '1507 Clarence Ct, West Bend', image: '/clarence.webp' },
+    { address: '819 Cumberland Ln, Port Washington', image: '/cumberland.webp' },
+    { address: '716 E. Decorah, West Bend', image: '/decorah.webp' },
+    { address: '2710 Esker Dr, West Bend', image: '/esker.webp' },
+    { address: 'W243S7830 Evergreen Dr, Vernon', image: '/evergreen.webp' },
+    { address: '10430 W. Fairlane Ave, Milwaukee', image: '/fairlane.webp' },
+    { address: 'W182N12517 Fond Du Lac Ave, Germantown', image: '/fdlave.webp' },
+    { address: '4812 Glen View Cir, West Bend', image: '/glenview.webp' },
+    { address: '10120 W. Harrison Ave, West Allis', image: '/harrison.webp' },
+    { address: 'N4552-N4554 Hickory Rd, Hustisford', image: '/hickory.webp' },
+    { address: 'N9384 Idle Hour, Beaver Dam Lake', image: '/idle.webp' },
+    { address: '631 N Kuester Ln, West Bend', image: '/kuester.webp' },
+    { address: '529 McKinley Ave, Hartford', image: '/mckinley.webp' },
+    { address: '4283 Meadow View Dr, Hartford', image: '/meadow.webp' },
+    { address: '705-707 N. Milwaukee St, Port Washington', image: '/mkest.webp' },
+    { address: '3980 Monches Rd, Richfield', image: '/monches.webp' },
+    { address: '560 Nordic Ct, Slinger', image: '/nordic.webp' },
+    { address: '2858 3rd Ave, Oxford', image: '/oxford.webp' },
+    { address: 'N2170 N Pine Beach Rd, Oostburg', image: '/pine.webp' },
+    { address: '3280 Sherman Parc Cir, Jackson', image: '/sherman.webp' },
+    { address: 'W158N10163 Shoshone Ct, Germantown', image: '/shoshone.webp' },
+    { address: '441 Slinger Rd 3, Slinger', image: '/slinger.webp' },
+    { address: '619 Tamarack Dr, West Bend', image: '/tamarak.webp' },
+    { address: '619 Tamarack Dr W, West Bend', image: '/tamarak2.webp' },
+    { address: '6662 Weis St, Addison', image: '/weis.webp' },
   ];
+
+  const itemsPerPage = 9;
+  const totalPages = Math.ceil(listings.length / itemsPerPage);
+  
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentListings = listings.slice(startIndex, endIndex);
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+      // Scroll to listings section with offset for navbar
+      setTimeout(() => {
+        const listingsSection = document.getElementById('listings');
+        const navbarHeight = 80; // Height of your fixed navbar
+        const elementPosition = listingsSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 50);
+    }
+  };
+
+  const goToPrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+      // Scroll to listings section with offset for navbar
+      setTimeout(() => {
+        const listingsSection = document.getElementById('listings');
+        const navbarHeight = 80;
+        const elementPosition = listingsSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 50);
+    }
+  };
 
   return (
     <section id="listings" className="py-20 bg-white">
@@ -51,7 +90,7 @@ const Listings = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {listings.map((listing, index) => (
+          {currentListings.map((listing, index) => (
             <div
               key={index}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
@@ -76,6 +115,62 @@ const Listings = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <div className="flex items-center justify-center gap-6 mt-12">
+          {/* Back Arrow */}
+          <button
+            onClick={goToPrevPage}
+            disabled={currentPage === 0}
+            className={`p-4 rounded-full transition-all duration-300 ${
+              currentPage === 0
+                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                : 'bg-emerald-800 text-white hover:bg-emerald-700 hover:scale-110 shadow-lg'
+            }`}
+            aria-label="Previous page"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Page Indicator */}
+          <span className="text-gray-700 font-medium">
+            Page {currentPage + 1} of {totalPages}
+          </span>
+
+          {/* Next Arrow */}
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages - 1}
+            className={`p-4 rounded-full transition-all duration-300 ${
+              currentPage === totalPages - 1
+                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                : 'bg-emerald-800 text-white hover:bg-emerald-700 hover:scale-110 shadow-lg'
+            }`}
+            aria-label="Next page"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
