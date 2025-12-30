@@ -1,16 +1,21 @@
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Agents from './components/Agents';
+import Listings from './components/Listings';
+import Contact from "./components/Contact";
+import Footer from './components/Footer';
+
 function App() {
   return (
-    <div className="min-h-screen bg-blue-500 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-xl">
-        <h1 className="text-4xl font-bold text-gray-800">
-          Tailwind is Working! 🎉
-        </h1>
-        <p className="text-gray-600 mt-4">
-          KM Real Estate - Ready to build!
-        </p>
-      </div>
+    <div className="font-sans">
+      <Navbar />
+      <Hero />
+      <Agents />
+      <Listings />
+      <Contact />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
