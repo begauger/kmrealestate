@@ -4,7 +4,7 @@ const Agents = () => {
       name: 'Martin Knuth',
       role: 'Real Estate Professional',
       phone: '262-675-0106',
-      email: 'martin@wkmp.com',
+      email: 'mlknuth43@gmail.com',
       image: '/marty.webp',
       tagline: 'Someone You Should Get to Know'
     },

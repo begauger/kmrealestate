@@ -8,10 +8,10 @@ const FeaturedListings = () => {
   const listings = [
     // NEW HOMES FIRST (11 new homes)
     { address: 'N64W15296 Sunny Dale Dr, Menomonee Falls', image: '/sunnydale.jpg' },
-    { address: '330 Wisconsin St Mayville', image: '/wistreet2.png' },
-    { address: '330 Wisconsin St Mayville', image: '/wistreet.png' },
-    { address: '3279 Lighthouse Ln West Bend', image: '/lighthouse2.png' },
-    { address: '3279 Lighthouse Ln West Bend', image: '/lighthouse1.png' },
+    { address: '330 Wisconsin St, Mayville', image: '/wistreet2.png' },
+    { address: '330 Wisconsin St, Mayville', image: '/wistreet.png' },
+    { address: '3279 Lighthouse Ln, West Bend', image: '/lighthouse2.png' },
+    { address: '3279 Lighthouse Ln, West Bend', image: '/lighthouse1.png' },
     { address: 'W209N11020 Springhill Ln, Germantown', image: '/springhill.jpg' },
     { address: '711 Jean Ct, Allenton', image: '/jeancourt.jpg' },
     { address: '130 W Prospect St, Hartford', image: '/prospect.jpg' },
