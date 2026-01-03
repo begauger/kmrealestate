@@ -185,7 +185,7 @@ const FeaturedListings = () => {
             onClick={handleViewAll}
             className="px-10 py-4 bg-emerald-800 text-white font-semibold rounded-lg hover:bg-emerald-700 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-lg"
           >
-            View All Sold Listings
+            More Sold Listings
           </button>
         </div>
       </div>
