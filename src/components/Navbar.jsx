@@ -1,14 +1,33 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+    // If we're not on the home page, navigate there first
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+      }
     }
+  };
+
+  const handleListingsClick = () => {
+    navigate('/all-listings');
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -45,7 +64,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                onClick={() => scrollToSection('listings')}
+                onClick={handleListingsClick}
                 className="text-gray-700 hover:text-emerald-700 font-medium transition-colors relative group"
               >
                 Sold Listings
@@ -108,7 +127,7 @@ const Navbar = () => {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('listings')}
+                  onClick={handleListingsClick}
                   className="block w-full text-left text-gray-700 hover:text-emerald-700 font-medium py-2"
                 >
                   Sold Listings

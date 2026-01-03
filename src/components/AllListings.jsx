@@ -1,9 +1,23 @@
 import { useState } from 'react';
 
-const Listings = () => {
+const AllListings = () => {
   const [currentPage, setCurrentPage] = useState(0);
   
   const listings = [
+    // ALL 11 NEW HOMES
+    { address: 'N64W15296 Sunny Dale Dr, Menomonee Falls', image: '/sunnydale.jpg' },
+    { address: '330 Wisconsin St Mayville', image: '/wistreet2.png' },
+    { address: '330 Wisconsin St Mayville', image: '/wistreet.png' },
+    { address: '3279 Lighthouse Ln West Bend', image: '/lighthouse2.png' },
+    { address: '3279 Lighthouse Ln West Bend', image: '/lighthouse1.png' },
+    { address: 'W209N11020 Springhill Ln, Germantown', image: '/springhill.jpg' },
+    { address: '711 Jean Ct, Allenton', image: '/jeancourt.jpg' },
+    { address: '130 W Prospect St, Hartford', image: '/prospect.jpg' },
+    { address: '471 Elder Ln, Allenton', image: '/elder.jpg' },
+    { address: '1920 Deerfield Dr, West Bend', image: '/deerfield.jpg' },
+    { address: 'W5384 Wildlife Ln, Fond Du Lac', image: '/wildlife.jpg' },
+    
+    // ALL 28 EXISTING HOMES
     { address: '6079 St Anthony Rd, Addison', image: '/anthony.webp' },
     { address: '5340 Cascade Dr, Trenton', image: '/cascade.webp' },
     { address: '5401 Cascade Dr, Trenton', image: '/cascade2.webp' },
@@ -44,48 +58,26 @@ const Listings = () => {
   const goToNextPage = () => {
     if (currentPage < totalPages - 1) {
       setCurrentPage(currentPage + 1);
-      // Scroll to listings section with offset for navbar
-      setTimeout(() => {
-        const listingsSection = document.getElementById('listings');
-        const navbarHeight = 80; // Height of your fixed navbar
-        const elementPosition = listingsSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }, 50);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const goToPrevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
-      // Scroll to listings section with offset for navbar
-      setTimeout(() => {
-        const listingsSection = document.getElementById('listings');
-        const navbarHeight = 80;
-        const elementPosition = listingsSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }, 50);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="listings" className="py-20 bg-white">
+    <section className="py-20 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-normal text-emerald-800 mb-4">
-            Recently Sold Properties
+            All Sold Properties
           </h2>
           <p className="text-lg text-amber-700 font-light">
-            Help us get your home pictured here!
+            Browse our complete collection of successfully sold homes
           </p>
         </div>
 
@@ -177,4 +169,4 @@ const Listings = () => {
   );
 };
 
-export default Listings;
+export default AllListings;
