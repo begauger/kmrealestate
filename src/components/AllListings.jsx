@@ -6,10 +6,11 @@ const AllListings = () => {
   const listings = [
     // ALL 11 NEW HOMES
     { address: 'N64W15296 Sunny Dale Dr, Menomonee Falls', image: '/sunnydale.jpg' },
-    { address: '330 Wisconsin St, Mayville', image: '/wistreet2.png' },
+    { address: '5401 Cascade Dr, Trenton', image: '/wistreet2.png' },
+    { address: '5401 Cascade Dr, Trenton', image: '/cascade2.webp' },
     { address: '330 Wisconsin St, Mayville', image: '/wistreet.png' },
+    { address: '330 Wisconsin St, Mayville', image: '/lighthouse1.png' },
     { address: '3279 Lighthouse Ln, West Bend', image: '/lighthouse2.png' },
-    { address: '3279 Lighthouse Ln, West Bend', image: '/lighthouse1.png' },
     { address: 'W209N11020 Springhill Ln, Germantown', image: '/springhill.jpg' },
     { address: '711 Jean Ct, Allenton', image: '/jeancourt.jpg' },
     { address: '130 W Prospect St, Hartford', image: '/prospect.jpg' },
@@ -20,7 +21,6 @@ const AllListings = () => {
     // ALL 28 EXISTING HOMES
     { address: '6079 St Anthony Rd, Addison', image: '/anthony.webp' },
     { address: '5340 Cascade Dr, Trenton', image: '/cascade.webp' },
-    { address: '5401 Cascade Dr, Trenton', image: '/cascade2.webp' },
     { address: '1507 Clarence Ct, West Bend', image: '/clarence.webp' },
     { address: '819 Cumberland Ln, Port Washington', image: '/cumberland.webp' },
     { address: '716 E. Decorah, West Bend', image: '/decorah.webp' },
@@ -74,7 +74,7 @@ const AllListings = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-normal text-emerald-800 mb-4">
-            All Sold Properties
+            More Sold Properties
           </h2>
           <p className="text-lg text-amber-700 font-light">
             Browse our complete collection of successfully sold homes
